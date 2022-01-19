@@ -10,8 +10,8 @@ def vypis_hraci_pole(hraci_pole : list):
    
 def main():
     hraci_pole = ["*", "*", "*", "*", "*", "*","*", "*", "*"]
-    pocet = 0
-    vyhra = [[1,2,3], [4,5,6], [7,8,9], [7,4,1], [8,5,2], [9,6,3]]
+    pocet = 1
+    vyhra = [[1,2,3], [4,5,6], [7,8,9], [7,4,1], [8,5,2], [9,6,3], [1,5,9], [3,5,7]]
     hrac = ""
     hraci = ["X", "O"]
     while True:
@@ -27,6 +27,7 @@ def main():
 
         # Validace výhry
         for w in vyhra:
+            print(hraci_pole[w[0]-1])
             if(hraci_pole[w[0]-1] == hrac and hraci_pole[w[1]-1] == hrac and hraci_pole[w[2]-1] == hrac):
                 print(f"{hrac} win! Congrats!")
                 break
@@ -38,6 +39,13 @@ def main():
             hrac = "X"
         
         vypis_hraci_pole(hraci_pole)
+
+        # Počet game loopů
+        if pocet >= len(hraci_pole):
+            break
+        else:
+            pocet += 1
+
 
 if __name__ == "__main__":
     main()
